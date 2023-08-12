@@ -5,8 +5,6 @@ import com.example.backend.springbootbackend.exception.RessourceNotFoundExceptio
 import com.example.backend.springbootbackend.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -51,7 +49,11 @@ public class ProduitServiceImpl implements ProductService{
     }
 
     public void deleteProduit(Long id) {
+        //Optional est une classe fournie par Java qui représente une valeur qui peut être présente ou absente.
+        // Cela permet de gérer les cas où la valeur peut être nulle sans risquer de générer
+        // des exceptions de type NullPointerException
         Optional<Produit> existingProduit = produitRepository.findById(id);
+        // existingProduit variable dans laquelle nous stockons le résultat
         if (existingProduit.isPresent()) {
             Produit produit = existingProduit.get();
             produit.setIsDeleted(1);

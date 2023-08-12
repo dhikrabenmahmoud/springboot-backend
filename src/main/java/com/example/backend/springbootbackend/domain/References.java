@@ -31,8 +31,11 @@ public class References implements Serializable  {
     private String nomFr;
     @Column(name = "noman")
     private String nomAn;
+    @Lob
     @Column(name = "image")
-    private String image;
+    private byte[] image;
+/*    @Column(name = "contenttype")
+    private String contentType;*/
 
     @Column(name = "utilisateur")
     private String  utilisateur;

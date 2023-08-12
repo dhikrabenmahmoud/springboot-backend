@@ -5,6 +5,7 @@ import com.example.backend.springbootbackend.domain.References;
 import com.example.backend.springbootbackend.exception.RessourceNotFoundException;
 import com.example.backend.springbootbackend.services.ProductService;
 import com.example.backend.springbootbackend.services.ReferencesService;
+import com.example.backend.springbootbackend.services.dto.ReferenceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,12 +24,12 @@ public class ReferencesController {
     }
 
     @PostMapping("/reference")
-    public References createReferences(@RequestBody References references) {
+    public References createReferences(@RequestBody ReferenceDTO references) {
         return referencesService.createReferences(references);
     }
 
     @PutMapping("/reference/{id}")
-    public References updateReferences(@PathVariable Long id, @RequestBody References references) {
+    public References updateReferences(@PathVariable Long id, @RequestBody ReferenceDTO references) {
         references.setId(id);
         References  updateReferences = referencesService.updateReferences(references);
         if ( updateReferences == null) {
