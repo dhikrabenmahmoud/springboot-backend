@@ -16,6 +16,7 @@ public class ReferenceDTO {
     private String nomAn;
     private String image;
     // private String contentType;
+    // gfdgx
 
     private String  utilisateur;
     private String operation;
