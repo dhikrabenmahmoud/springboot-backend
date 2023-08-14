@@ -8,7 +8,8 @@ import java.util.List;
 public interface ReferencesService {
     List<References> getAllReferences();
     References createReferences(ReferenceDTO references);
-    References updateReferences(ReferenceDTO references);
+    References updateReferences(References references);
     void deleteReferences(Long id);
     References getReferencesById(Long id);
+
 }

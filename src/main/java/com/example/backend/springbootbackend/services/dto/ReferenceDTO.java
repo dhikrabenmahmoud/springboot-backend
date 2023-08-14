@@ -2,6 +2,7 @@ package com.example.backend.springbootbackend.services.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 
@@ -15,8 +16,7 @@ public class ReferenceDTO {
     private String nomFr;
     private String nomAn;
     private String image;
-    // private String contentType;
-    // gfdgx
+
 
     private String  utilisateur;
     private String operation;

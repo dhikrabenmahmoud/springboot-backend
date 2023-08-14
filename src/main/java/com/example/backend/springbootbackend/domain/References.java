@@ -32,10 +32,8 @@ public class References implements Serializable  {
     @Column(name = "noman")
     private String nomAn;
     @Lob
-    @Column(name = "image")
+     @Column(name = "image")
     private byte[] image;
-/*    @Column(name = "contenttype")
-    private String contentType;*/
 
     @Column(name = "utilisateur")
     private String  utilisateur;
@@ -43,8 +41,6 @@ public class References implements Serializable  {
     private String operation;
     @Column(name = "isSelected")
     private int isSelected;
-    //createddate fait partie du module Spring Data JPA etest utilisée pour marquer une propriété d'une entité comme devant être
-    // automatiquement renseignée avec la date
     @Column(name = "isDeleted")
     private Integer isDeleted;
     @CreatedDate

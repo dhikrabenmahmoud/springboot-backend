@@ -27,13 +27,8 @@ public class ReferencesServiceImpl implements ReferencesService{
         String[] parts = references.getImage().split(delims);
         String imageString = parts[1];
         byte[] imageByteArray = Base64.getDecoder().decode(imageString);
-        System.out.println("dhikra1"+imageString);
-        System.out.println("dhikra2"+imageByteArray[0]);
-
-        // String content= references.getImage().substring(0, references.getImage().indexOf(",")+1);
-        ref.setImage(imageByteArray);
-        // ref.setContentType(content);
-        ref.setNomFr(references.getNomFr());
+         ref.setImage(imageByteArray);
+         ref.setNomFr(references.getNomFr());
         ref.setNomAn(references.getNomAn());
         ref.setNomAr(references.getNomAr());
         ref.setCreatedBy("admin");
@@ -46,22 +41,17 @@ public class ReferencesServiceImpl implements ReferencesService{
 
 
 
-    public References updateReferences(ReferenceDTO references) {
-        References ref = new References();
-        String delims = "[,]";
-        String[] parts = references.getImage().split(delims);
-        String imageString = parts[1];
-        byte[] imageByteArray = Base64.getDecoder().decode(imageString);
+    public References updateReferences(References references) {
         References existingReferences = referencesRepository.findById(references.getId()).orElse(null);
 
         if (existingReferences != null) {
             existingReferences.setNomAr(references.getNomAr());
             existingReferences.setNomFr(references.getNomFr());
             existingReferences.setNomAn(references.getNomAn());
-            existingReferences.setImage(imageByteArray);
+            existingReferences.setImage(references.getImage());
             existingReferences.setUpdatedBy("admin");
             existingReferences.setUpdatedDate(LocalDateTime.now());
-            existingReferences.setOperation("UPDATE PRODUCT");
+            existingReferences.setOperation("UPDATE REFERENCES");
             existingReferences.setUtilisateur("admin");
 
             return referencesRepository.save(existingReferences);
@@ -87,18 +77,10 @@ public class ReferencesServiceImpl implements ReferencesService{
         }
     }
 
-  /*  public References getReferencesById(Long id) {
+    public References getReferencesById(Long id) {
         return referencesRepository.findById(id).orElseThrow(
                 () -> new RessourceNotFoundException("References with ID " + id + " not found.")
         );
-    }*/
-  public References getReferencesById(Long id) {
-       References f=referencesRepository.findById(id).orElseThrow(
-              () -> new RessourceNotFoundException("References with ID " + id + " not found.")
-      );
-       System.out.println("dhikra3"+f.getImage());
-      String decodedString = new String(f.getImage());
-      System.out.println("dhikra3"+ decodedString);
-       return null;
-  }
+    }
+
 }
