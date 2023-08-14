@@ -33,7 +33,7 @@ public class References implements Serializable  {
     private String nomAn;
     @Lob
      @Column(name = "image")
-    private byte[] image;
+    private String image;
 
     @Column(name = "utilisateur")
     private String  utilisateur;

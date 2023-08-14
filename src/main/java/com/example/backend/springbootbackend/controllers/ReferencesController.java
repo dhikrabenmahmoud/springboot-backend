@@ -7,10 +7,12 @@ import com.example.backend.springbootbackend.services.ProductService;
 import com.example.backend.springbootbackend.services.ReferencesService;
 import com.example.backend.springbootbackend.services.dto.ReferenceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,5 +53,7 @@ public class ReferencesController {
     public References getReferencesById(@PathVariable Long id) {
         return referencesService.getReferencesById(id);
     }
+
+
 
 }
